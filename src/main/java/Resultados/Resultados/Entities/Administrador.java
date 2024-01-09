@@ -12,36 +12,14 @@ public class Administrador {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAdministrador;
 
-    @Column(length=100,nullable = false)
-    private String UsuarioAdministrador;
-
-    @Column(length=100,nullable = false)
-    private String Contrasena;
-
     @OneToMany(mappedBy = "administrador")
     List<Documentacion> documentacion;
+
+    @OneToOne(cascade = CascadeType.ALL,optional = false)
+    @JoinColumn(name = "idUsuario")
+    Usuario usuario;
 
     public Administrador() {
     }
 
-    public Administrador(String usuarioAdministrador, String contrasena) {
-        UsuarioAdministrador = usuarioAdministrador;
-        Contrasena = contrasena;
-    }
-
-    public String getUsuarioAdministrador() {
-        return UsuarioAdministrador;
-    }
-
-    public void setUsuarioAdministrador(String usuarioAdministrador) {
-        UsuarioAdministrador = usuarioAdministrador;
-    }
-
-    public String getContrasena() {
-        return Contrasena;
-    }
-
-    public void setContrasena(String contrasena) {
-        Contrasena = contrasena;
-    }
 }
