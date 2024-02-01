@@ -38,6 +38,8 @@ public class Consumer {
             // Asunto
             String subject = " ¡Estás a un paso de empezar tu entrenamiento!";
 
+            System.out.println("cambio");
+
 
             // Contenido HTML del correo
 
